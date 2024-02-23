@@ -21,9 +21,20 @@
         // 看著是一個 vnode 其實 是兩個 vnode節點
         //  h("button", null, "+1") 改成  h("button", null, [h()])
         // 又是一個vnode vdom 結構 dom樹結構
-        console.log(vnode);
+        // console.log(vnode);
         // 將vnode挂載到div#app上
         mount(vnode, document.querySelector("#app"))
+
+        // const vnode1 = h("h2", { class: "est" }, "hello world!")
+        const vnode1 = h("div", { class: "est" }, [
+            h("h2", null, "當前計數: 100"),
+            h("span", null, "+1")]
+        )
+        setTimeout(() => {
+            patch(vnode, vnode1)
+
+        }, 2000)
+
     </script>
 </body>
 
